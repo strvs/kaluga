@@ -77,10 +77,18 @@ $(document).ready(function() {
         dots: true
     });
 
-    $('.datepicker-here').datepicker({
+    $('.news-filter-calendar-datepicker').datepicker({
         inline: true,
         range: true,
-        toggleSelected: false
+        toggleSelected: false,
+        onSelect: function(fd, d, picker) {
+            $('.news-filter-dates-field').eq(0).find('input').val(('0' + d[0].getDate()).slice(-2) + '.' + ('0' + (d[0].getMonth() + 1)).slice(-2) + '.' + d[0].getFullYear());
+            if (d.length == 2) {
+                $('.news-filter-dates-field').eq(1).find('input').val(('0' + d[1].getDate()).slice(-2) + '.' + ('0' + (d[1].getMonth() + 1)).slice(-2) + '.' + d[1].getFullYear());
+            } else {
+                $('.news-filter-dates-field').eq(1).find('input').val('');
+            }
+        }
     })
 
 });

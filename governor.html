@@ -42,10 +42,10 @@
 
                     <div class="header-menu">
                         <ul>
-                            <li>
+                            <li class="active">
                                 <a href="#">Губернатор</a>
                                 <ul>
-                                    <li><a href="#">Биография</a></li>
+                                    <li class="active"><a href="#">Биография</a></li>
                                     <li><a href="#">Полномочия</a></li>
                                     <li><a href="#">Интервью</a></li>
                                     <li><a href="#">Контакты</a></li>
@@ -71,7 +71,7 @@
                                 </ul>
                             </li>
                             <li><a href="#">Обращения граждан</a></li>
-                            <li class="active"><a href="#">Новости</a></li>
+                            <li><a href="#">Новости</a></li>
                             <li><a href="#">Мероприятия</a></li>
                             <li>
                                 <a href="#">Медиа</a>
@@ -105,10 +105,10 @@
                         <div class="burger-menu">
                             <div class="burger-menu-col">
                                 <ul>
-                                    <li>
+                                    <li class="active">
                                         <a href="#">Губернатор</a>
                                         <ul>
-                                            <li><a href="#">Биография</a></li>
+                                            <li class="active"><a href="#">Биография</a></li>
                                             <li><a href="#">Полномочия</a></li>
                                             <li><a href="#">Интервью</a></li>
                                             <li><a href="#">Контакты</a></li>
@@ -142,7 +142,7 @@
                             <div class="burger-menu-col">
                                 <ul>
                                     <li><a href="#">Обращения граждан</a></li>
-                                    <li class="active"><a href="#">Новости</a></li>
+                                    <li><a href="#">Новости</a></li>
                                     <li><a href="#">Мероприятия</a></li>
                                     <li>
                                         <a href="#">Медиа</a>
@@ -277,197 +277,64 @@
 
             <!-- container -->
             <div class="container">
-                <h1>Новости</h1>
 
-                <!-- news container -->
-                <div class="news-container">
+                <div class="breadcrumbs"><a href="#">Главная</a><svg><use xlink:href="images/sprite.svg#breadcrumbs"></use></svg><a href="#">Губернатор</a><svg><use xlink:href="images/sprite.svg#breadcrumbs"></use></svg></div>
 
-                    <!-- news side -->
-                    <div class="news-side">
+                <!-- page container -->
+                <div class="page-container">
 
-                        <!-- news filter -->
-                        <div class="news-filter">
-                            <form action="#" method="post">
-                                <div class="news-filter-title">Фильтры</div>
-                                <div class="news-filter-content">
-                                    <div class="news-filter-calendar">
-                                        <div class="news-filter-calendar-datepicker"></div>
-                                    </div>
-                                    <div class="news-filter-dates">
-                                        <div class="news-filter-dates-field">
-                                            <div class="form-input"><input type="text" name="dateFrom" value="" readonly="true" /></div>
-                                        </div>
-                                        <div class="news-filter-dates-sep"></div>
-                                        <div class="news-filter-dates-field">
-                                            <div class="form-input"><input type="text" name="dateTo" value="" readonly="true" /></div>
-                                        </div>
-                                    </div>
-                                    <div class="news-filter-submit"><input type="submit" value="Подобрать" class="btn mini" /></div>
-                                </div>
-                            </form>
-                        </div>
-                        <!-- news filter END -->
-
-                        <!-- news tags -->
-                        <div class="news-tags">
-                            <div class="news-tags-title">Теги</div>
-                            <div class="news-tags-content">
-                                <div class="news-tags-list">
-                                    <a href="#">Экономика</a>
-                                    <a href="#">Власть</a>
-                                    <a href="#">Молодежь</a>
-                                    <a href="#">Туризм</a>
-                                    <a href="#">Жизнь города</a>
-                                    <a href="#">Образование</a>
-                                    <a href="#">Культура</a>
-                                    <a href="#">Социальная политика</a>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- news tags END -->
-
+                    <!-- page content -->
+                    <div class="page-content">
+                        <h1>Губернатор Калужской области Владислав Шапша</h1>
+                        <p><img src="files/governor.jpg" alt="" /><span class="content-img-title">Владислав Валерьевич Шапша</span></p>
+                        <p>Владислав Валерьевич Шапша родился 20 сентября 1972 года в городе Обнинске Калужской области.</p>
+                        <h2>Образование</h2>
+                        <p>В 1995 году Владислав Шапша окончил Обнинский институт атомной энергетики по специальности «Прикладная математика» с присвоением квалификации инженера-математика, а в 2003 году - ГОУ ВПО Государственный университет управления по специальности «Государственное и муниципальное управление».</p>
+                        <p>В 2018 году прошел профессиональную переподготовку в ФГБОУ ВО «Российская академия народного хозяйства и государственной службы при Президенте Российской Федерации» по программе «Развитие региональных команд».</p>
+                        <h2>Профессиональная деятельность</h2>
+                        <p>С 1994 по 1995 год — специалист Центра занятости населения города Обнинска.</p>
+                        <p>С 1995 по 1997 год проходил срочную военную службу на флоте (город Североморск, Мурманская область).</p>
+                        <p>С 1997 по 2000 год работал на разных должностях в Обнинском городском отделе департамента федеральной государственной службы занятости населения по Калужской области.</p>
+                        <p>С 2001 по 2002 год — заместитель директора Обнинского городского центра занятости населения.</p>
+                        <p>С 2002 по 2004 год — консультант вице-Губернатора Калужской области и консультант заместителя Губернатора Калужской области.</p>
+                        <p>С 2004 по 2006 год — исполнительный директор некоммерческого партнёрства «Ока».</p>
+                        <p>С 2006 по 2010 год — управляющий делами администрации г. Обнинска.</p>
+                        <p>С 2010 по 2015 год — заместитель главы администрации г. Обнинска по вопросам управления делами.</p>
+                        <p>С 2015 по 2020 год — глава Администрации городского округа «Город Обнинск».</p>
+                        <p>13 февраля 2020 года Указом Президента Российской Федерации назначен временно исполняющим обязанности Губернатора Калужской области.</p>
+                        <p>16 сентября 2020 года официально вступил в должность Губернатора Калужской области.</p>
+                        <p>Женат, воспитывает сына</p>
+                        <h2>Награды</h2>
+                        <ul>
+                            <li>Почетное звание «Заслуженный работник муниципальной службы Калужской области»;</li>
+                            <li>медаль МЧС России «За содружество во имя спасения»;</li>
+                            <li>медаль «За заслуги в проведении Всероссийской переписи населения 2010»;</li>
+                            <li>медаль МЧС России «25 лет МЧС России»;</li>
+                            <li>юбилейная медаль «120 лет со дня рождения Г.К. Жукова»;</li>
+                            <li>памятная медаль МЧС России «85 лет гражданской обороне»;</li>
+                            <li>юбилейный памятный знак Законодательного Собрания Калужской области «25 лет Законодательному Собранию Калужской области»,</li>
+                            <li>Почетные грамоты Губернатора Калужской области;</li>
+                            <li>Благодарность Председателя Центральной избирательной комиссии Российской Федерации, 2016;</li>
+                            <li>Благодарственное письмо Президента Российской Федерации.</li>
+                        </ul>
                     </div>
-                    <!-- news side END -->
+                    <!-- page content END -->
 
-                    <!-- news content -->
-                    <div class="news-content">
-
-                        <div class="news-item">
-                            <div class="news-item-preview"><a href="#"><img src="files/news-01.jpg" alt="" /></a></div>
-                            <div class="news-item-content">
-                                <div class="main-news-item-section"><a href="#">Экономика</a></div>
-                                <div class="main-news-item-title"><a href="#">Владислав Шапша призвал сотрудников городских и районных администраций Калужской области выйти на очистку снега общественных мест и подходов к социальным учреждениям</a></div>
-                                <div class="main-news-item-ctrl">
-                                    <div class="main-news-item-date">5 марта 2020 года</div>
-                                    <div class="main-news-item-photo"><svg><use xlink:href="images/sprite.svg#main-news-photo"></use></svg></div>
-                                    <div class="main-news-item-video"><svg><use xlink:href="images/sprite.svg#main-news-video"></use></svg></div>
-                                    <div class="main-news-item-view"><svg><use xlink:href="images/sprite.svg#main-news-view"></use></svg>513</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="news-item">
-                            <div class="news-item-preview"><a href="#"><img src="files/news-02.jpg" alt="" /></a></div>
-                            <div class="news-item-content">
-                                <div class="main-news-item-section"><a href="#">Жизнь города</a></div>
-                                <div class="main-news-item-title"><a href="#">Владислав Шапша принял участие в закрытии XVI международного православного сретенского кинофестиваля «Встреча»</a></div>
-                                <div class="main-news-item-ctrl">
-                                    <div class="main-news-item-date">5 марта 2020 года</div>
-                                    <div class="main-news-item-video"><svg><use xlink:href="images/sprite.svg#main-news-video"></use></svg></div>
-                                    <div class="main-news-item-view"><svg><use xlink:href="images/sprite.svg#main-news-view"></use></svg>513</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="news-item">
-                            <div class="news-item-preview"><a href="#"><img src="files/news-03.jpg" alt="" /></a></div>
-                            <div class="news-item-content">
-                                <div class="main-news-item-section"><a href="#">Культура</a></div>
-                                <div class="main-news-item-title"><a href="#">Калужан приглашают принять участие в конкурсе космических открыток</a></div>
-                                <div class="main-news-item-ctrl">
-                                    <div class="main-news-item-date">5 марта 2020 года</div>
-                                    <div class="main-news-item-view"><svg><use xlink:href="images/sprite.svg#main-news-view"></use></svg>513</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="news-item">
-                            <div class="news-item-preview"><a href="#"><img src="files/news-04.jpg" alt="" /></a></div>
-                            <div class="news-item-content">
-                                <div class="main-news-item-section"><a href="#">Социальная политика</a></div>
-                                <div class="main-news-item-title"><a href="#">Владислав Шапша о реализации нацпроектов: «Обращаю внимание министров: это ваша зона ответственности – провести все торги в срок и реализовать все задачи, которые перед вами стоят. Спрос будет с вас»</a></div>
-                                <div class="main-news-item-ctrl">
-                                    <div class="main-news-item-date">5 марта 2020 года</div>
-                                    <div class="main-news-item-view"><svg><use xlink:href="images/sprite.svg#main-news-view"></use></svg>513</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="news-item">
-                            <div class="news-item-preview"><a href="#"><img src="files/news-05.jpg" alt="" /></a></div>
-                            <div class="news-item-content">
-                                <div class="main-news-item-section"><a href="#">Экономика</a></div>
-                                <div class="main-news-item-title"><a href="#">Владислав Шапша: «Муниципальный уровень власти – важнейшая ступень в государственном устройстве»</a></div>
-                                <div class="main-news-item-ctrl">
-                                    <div class="main-news-item-date">5 марта 2020 года</div>
-                                    <div class="main-news-item-view"><svg><use xlink:href="images/sprite.svg#main-news-view"></use></svg>513</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="news-item">
-                            <div class="news-item-preview"><a href="#"><img src="files/news-06.jpg" alt="" /></a></div>
-                            <div class="news-item-content">
-                                <div class="main-news-item-section"><a href="#">Туризм</a></div>
-                                <div class="main-news-item-title"><a href="#">Анапа, Геленджик, Симферополь: открыты продажи авиабилетов из Калуги</a></div>
-                                <div class="main-news-item-ctrl">
-                                    <div class="main-news-item-date">5 марта 2020 года</div>
-                                    <div class="main-news-item-view"><svg><use xlink:href="images/sprite.svg#main-news-view"></use></svg>513</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="news-item">
-                            <div class="news-item-preview"><a href="#"><img src="files/news-04.jpg" alt="" /></a></div>
-                            <div class="news-item-content">
-                                <div class="main-news-item-section"><a href="#">Экономика</a></div>
-                                <div class="main-news-item-title"><a href="#">Калужская делегация примет участие в RosBuild-2021</a></div>
-                                <div class="main-news-item-ctrl">
-                                    <div class="main-news-item-date">5 марта 2020 года</div>
-                                    <div class="main-news-item-view"><svg><use xlink:href="images/sprite.svg#main-news-view"></use></svg>513</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="news-item">
-                            <div class="news-item-preview"><a href="#"><img src="files/news-05.jpg" alt="" /></a></div>
-                            <div class="news-item-content">
-                                <div class="main-news-item-section"><a href="#">Экономика</a></div>
-                                <div class="main-news-item-title"><a href="#">Владислав Шапша: «Муниципальный уровень власти – важнейшая ступень в государственном устройстве»</a></div>
-                                <div class="main-news-item-ctrl">
-                                    <div class="main-news-item-date">5 марта 2020 года</div>
-                                    <div class="main-news-item-view"><svg><use xlink:href="images/sprite.svg#main-news-view"></use></svg>513</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="news-item">
-                            <div class="news-item-preview"><a href="#"><img src="files/news-06.jpg" alt="" /></a></div>
-                            <div class="news-item-content">
-                                <div class="main-news-item-section"><a href="#">Туризм</a></div>
-                                <div class="main-news-item-title"><a href="#">Анапа, Геленджик, Симферополь: открыты продажи авиабилетов из Калуги</a></div>
-                                <div class="main-news-item-ctrl">
-                                    <div class="main-news-item-date">5 марта 2020 года</div>
-                                    <div class="main-news-item-view"><svg><use xlink:href="images/sprite.svg#main-news-view"></use></svg>513</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="news-item">
-                            <div class="news-item-preview"><a href="#"><img src="files/news-07.jpg" alt="" /></a></div>
-                            <div class="news-item-content">
-                                <div class="main-news-item-section"><a href="#">Экономика</a></div>
-                                <div class="main-news-item-title"><a href="#">Национальный проект «Демография»: «Старшее поколение» итоги и планы</a></div>
-                                <div class="main-news-item-ctrl">
-                                    <div class="main-news-item-date">5 марта 2020 года</div>
-                                    <div class="main-news-item-view"><svg><use xlink:href="images/sprite.svg#main-news-view"></use></svg>513</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="pager">
-                            <span>1</span>
-                            <a href="#">2</a>
-                            <a href="#">3</a>
-                            <a href="#">4</a>
-                            <a href="#">Следующая</a>
-                        </div>
-
+                    <!-- page menu -->
+                    <div class="page-menu">
+                        <ul>
+                            <li class="active"><a href="#">Биография</a></li>
+                            <li><a href="#">Полномочия</a></li>
+                            <li><a href="#">Интервью</a></li>
+                            <li><a href="#">Раздел 1</a></li>
+                            <li><a href="#">Раздел 2</a></li>
+                            <li><a href="#">Контакты</a></li>
+                        </ul>
                     </div>
-                    <!-- news content END -->
+                    <!-- page menu END -->
 
                 </div>
-                <!-- news container END -->
+                <!-- page container END -->
 
             </div>
             <!-- container END -->
