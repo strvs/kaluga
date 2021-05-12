@@ -1,5 +1,36 @@
 $(document).ready(function() {
 
+	$('body').on('focus', '.form-input input, .form-input textarea', function() {
+		$(this).parent().addClass('focus');
+	});
+
+	$('body').on('blur', '.form-input input, .form-input textarea', function() {
+		$(this).parent().removeClass('focus');
+		if ($(this).val() != '') {
+			$(this).parent().addClass('full');
+		} else {
+			$(this).parent().removeClass('full');
+		}
+	});
+
+	$('body').on('keyup', '.form-input input, .form-input textarea', function() {
+		$(this).parent().removeClass('focus');
+		if ($(this).val() != '') {
+			$(this).parent().addClass('full');
+		} else {
+			$(this).parent().removeClass('full');
+		}
+	});
+
+	$('body').on('click', '.form-input-clear', function(e) {
+        $(this).parent().find('input').val('').trigger('blur');
+        e.preventDefault();
+	});
+
+	$('form').each(function() {
+		initForm($(this));
+	});
+
     $('.top-sites').click(function(e) {
         $('html').removeClass('burger-open');
         $('html').removeClass('search-open');
@@ -91,4 +122,22 @@ $(document).ready(function() {
         }
     })
 
+	$('body').on('click', '.media-video-link', function(e) {
+        $('.media-video.start').removeClass('start');
+		$('.media-video-player').html('');
+		$(this).parent().addClass('start');
+		$(this).parent().find('.media-video-player').html('<video src="' + $(this).attr('href') + '" autoplay="autoplay" controls="controls" tabindex="0"></video>');
+		e.preventDefault();
+	});
+
 });
+
+function initForm(curForm) {
+
+	curForm.find('.form-input input, .form-input textarea').each(function() {
+		if ($(this).val() != '') {
+			$(this).parent().addClass('full');
+		}
+	});
+
+}
