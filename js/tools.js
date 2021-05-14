@@ -162,6 +162,77 @@ $(document).ready(function() {
         $(this).parent().toggleClass('open');
     });
 
+    $('.docs-filter-dates-from').datepicker({
+        onSelect: function(fd, d, picker) {
+            $('.news-filter-submit input').prop('disabled', false);
+        }
+    });
+
+    $('.docs-filter-dates-to').datepicker({
+        onSelect: function(fd, d, picker) {
+            $('.news-filter-submit input').prop('disabled', false);
+        }
+    });
+
+    $('.news-filter-select-current').click(function() {
+        var curSelect = $(this).parent();
+        if (curSelect.hasClass('open')) {
+            curSelect.removeClass('open');
+        } else {
+            $('.news-filter-select.open').removeClass('open');
+            curSelect.addClass('open');
+        }
+    });
+
+    $(document).click(function(e) {
+        if ($(e.target).parents().filter('.news-filter-select').length == 0) {
+            $('.news-filter-select.open').removeClass('open');
+        }
+    });
+
+    $('.news-filter-select-list').mCustomScrollbar({
+        axis: 'y'
+    });
+
+    $('.news-filter-select-item input').change(function() {
+        var curSelect = $(this).parents().filter('.news-filter-select');
+        var curText = '';
+        curSelect.find('.news-filter-select-item input:checked').each(function() {
+            if (curText != '') {
+                curText += ', ';
+            }
+            curText += $(this).parent().find('span').html();
+        });
+        curSelect.find('.news-filter-select-current span').html(curText);
+    });
+
+    $('.news-filter-select').each(function() {
+        var curSelect = $(this);
+        var curText = '';
+        curSelect.find('.news-filter-select-item input:checked').each(function() {
+            if (curText != '') {
+                curText += ', ';
+            }
+            curText += $(this).parent().find('span').html();
+        });
+        curSelect.find('.news-filter-select-current span').html(curText);
+    });
+
+    $('.news-filter input').change(function() {
+        $('.news-filter-submit input').prop('disabled', false);
+    });
+
+    $('.news-filter input[type="text"]').on('keyup', function() {
+        $('.news-filter-submit input').prop('disabled', false);
+    });
+    
+    $('.structure-group').each(function() {
+        var curGroup = $(this);
+        if (curGroup.find('.structure-group').length == 0) {
+            curGroup.addClass('not-child');
+        }
+    });
+
 });
 
 function initForm(curForm) {
