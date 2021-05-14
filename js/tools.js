@@ -232,6 +232,11 @@ $(document).ready(function() {
             curGroup.addClass('not-child');
         }
     });
+    
+    $('.structure-group-open').click(function(e) {
+        $(this).parent().parent().toggleClass('open');
+        e.preventDefault();
+    });
 
 });
 
