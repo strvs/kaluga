@@ -49,10 +49,16 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    $('.top-search, .header-search').click(function(e) {
+    $('.top-search').click(function(e) {
         $('html').removeClass('sites-open');
         $('html').removeClass('burger-open');
         $('html').addClass('search-open');
+        e.preventDefault();
+    });
+
+    $('.header-search').click(function(e) {
+        $('html').removeClass('sites-open');
+        $('html').addClass('burger-open');
         e.preventDefault();
     });
 
@@ -83,6 +89,22 @@ $(document).ready(function() {
 
     $('.sites').mCustomScrollbar({
         axis: 'y'
+    });
+
+    $('.burger li').each(function() {
+        if ($(this).find('ul').length > 0) {
+            $(this).addClass('with-submenu');
+            $(this).find('> a').append('<svg><use xlink:href="' + pathTemplate + 'images/sprite.svg#burger-submenu-arrow"></use></svg>');
+        }
+    });
+
+    $('.burger-menu ul li a').click(function(e) {
+        if ($(window).width() < 1089) {
+            if ($(this).parent().find('ul').length > 0) {
+                $(this).parent().toggleClass('open');
+                e.preventDefault();
+            }
+        }
     });
 
     $('.main-slider').slick({
@@ -133,6 +155,8 @@ $(document).ready(function() {
         inline: true,
         range: true,
         toggleSelected: false,
+        prevHtml: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 17.5L9 12L14.5 6.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>',
+        nextHtml: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 17.5L15.5 12L10 6.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>',
         onSelect: function(fd, d, picker) {
             $('.news-filter-dates-field').eq(0).find('input').val(('0' + d[0].getDate()).slice(-2) + '.' + ('0' + (d[0].getMonth() + 1)).slice(-2) + '.' + d[0].getFullYear());
             if (d.length == 2) {
@@ -163,16 +187,38 @@ $(document).ready(function() {
     });
 
     $('.docs-filter-dates-from').datepicker({
+        prevHtml: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 17.5L9 12L14.5 6.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>',
+        nextHtml: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 17.5L15.5 12L10 6.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>',
+        onSelect: function(fd, d, picker) {
+            $('.news-filter-submit input').prop('disabled', false);
+            $('.docs-filter-dates-to').data('datepicker').update('minDate', d);
+        }
+    });
+
+    $('.docs-filter-dates-to').datepicker({
+        prevHtml: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 17.5L9 12L14.5 6.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>',
+        nextHtml: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 17.5L15.5 12L10 6.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>',
+        position: 'bottom right',
         onSelect: function(fd, d, picker) {
             $('.news-filter-submit input').prop('disabled', false);
         }
     });
 
-    $('.docs-filter-dates-to').datepicker({
-        onSelect: function(fd, d, picker) {
-            $('.news-filter-submit input').prop('disabled', false);
+	$('.docs-filter-dates-from, .docs-filter-dates-to').each(function() {
+		var startDate = new Date();
+		if (typeof ($(this).attr('value')) != 'undefined') {
+			var curValue = $(this).val();
+			if (curValue != '') {
+				var startDateArray = curValue.split('.');
+				startDate = new Date(Number(startDateArray[2]), Number(startDateArray[1]) - 1 , Number(startDateArray[0]));
+			}
+		}
+		$(this).data('datepicker').update('startDate', startDate);
+        if ($(this).hasClass('docs-filter-dates-from')) {
+            $('.docs-filter-dates-to').data('datepicker').update('minDate', startDate);
         }
-    });
+		$(this).data('datepicker').selectDate(startDate);
+	});
 
     $('.news-filter-select-current').click(function() {
         var curSelect = $(this).parent();
@@ -289,6 +335,8 @@ $(document).ready(function() {
         if (curGallery.find('.news-photos-item').length > curGallery.find('.news-photos-item.visible').length) {
             curGallery.addClass('with-more');
         }
+        var curCount = curGallery.find('.news-photos-item').length / 2;
+        curGallery.find('.news-photos-list').css({'width': curCount * 272});
     });
 
     $('.news-photos-more a').click(function(e) {
@@ -306,6 +354,16 @@ $(document).ready(function() {
     $('.events-old-link a').click(function(e) {
         $('.events-old-link').toggleClass('active');
         $('.events-old').toggleClass('open');
+        e.preventDefault();
+    });
+    
+    $('.news-filter-title').click(function(e) {
+        $('.news-filter').toggleClass('open');
+        e.preventDefault();
+    });
+
+    $('.news-tags-title').click(function(e) {
+        $('.news-tags').toggleClass('open');
         e.preventDefault();
     });
 
@@ -331,6 +389,10 @@ $(window).on('load resize', function() {
             }
         });
 
+        $('.news-photos').each(function() {
+            $('.news-photos').mCustomScrollbar('destroy');
+        });
+
         if ($('.table-scroll').length > 0) {
             $('.table-scroll').mCustomScrollbar('destroy');
         }
@@ -346,6 +408,13 @@ $(window).on('load resize', function() {
                     dots: false
                 });
             }
+        });
+
+        $('.news-photos').each(function() {
+            var curTableScroll = $(this);
+            curTableScroll.mCustomScrollbar({
+                axis: 'x'
+            });
         });
 
         if ($('.table-scroll').length > 0) {
