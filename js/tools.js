@@ -182,10 +182,6 @@ $(document).ready(function() {
         }
     });
 
-    $('.content-menu-current').click(function(e) {
-        $(this).parent().toggleClass('open');
-    });
-
     $('.docs-filter-dates-from').datepicker({
         prevHtml: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 17.5L9 12L14.5 6.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>',
         nextHtml: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 17.5L15.5 12L10 6.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>',
@@ -356,7 +352,7 @@ $(document).ready(function() {
         $('.events-old').toggleClass('open');
         e.preventDefault();
     });
-    
+
     $('.news-filter-title').click(function(e) {
         $('.news-filter').toggleClass('open');
         e.preventDefault();
@@ -364,6 +360,28 @@ $(document).ready(function() {
 
     $('.news-tags-title').click(function(e) {
         $('.news-tags').toggleClass('open');
+        e.preventDefault();
+    });
+
+    $('.content-menu').each(function() {
+        var curMenu = $(this);
+        var curItems = [];
+
+        curMenu.find('ul li a').each(function() {
+            var curLink = $(this);
+            curItems.push([curLink.html(), curLink.attr('href'), curLink.parent().hasClass('active')]);
+        });
+        curMenu.data('list', JSON.stringify(curItems));
+        $(window).trigger('resize');
+    });
+
+    $('body').on('click', '.content-menu-mobile-link', function(e) {
+        $(this).parents().filter('.content-menu').addClass('open');
+        e.preventDefault();
+    });
+
+    $('body').on('click', '.content-menu-mobile-close', function(e) {
+        $(this).parents().filter('.content-menu').removeClass('open');
         e.preventDefault();
     });
 
@@ -396,6 +414,48 @@ $(window).on('load resize', function() {
         if ($('.table-scroll').length > 0) {
             $('.table-scroll').mCustomScrollbar('destroy');
         }
+
+        $('.content-menu').each(function() {
+            var curMenu = $(this);
+            if (typeof curMenu.data('list') !== 'undefined') {
+                var curItems = JSON.parse(curMenu.data('list'));
+                curMenu.find('ul').html('');
+                curMenu.find('.content-menu-mobile-link').remove();
+                curMenu.find('.content-menu-mobile').remove();
+                if (curItems.length > 2) {
+                    var addCount = 0;
+                    for (var i = 0; i < curItems.length; i++) {
+                        var classActive = '';
+                        if (curItems[i][2]) {
+                            classActive = ' class="active"';
+                        }
+                        curMenu.find('ul').append('<li' + classActive + '><a href="' + curItems[i][1] + '">' + curItems[i][0] + '</a></li>');
+                        if ((addCount > 0) || (curMenu.find('ul').width() > curMenu.width() - 108)) {
+                            addCount++;
+                            curMenu.find('ul li:last-child').remove();
+                        }
+                    }
+                    if (addCount > 0) {
+                        curMenu.find('ul').append('<li class="content-menu-more-link"><a href="#">Еще ' + addCount + '<svg><use xlink:href="' + pathTemplate + 'images/sprite.svg#burger-submenu-arrow"></use></svg></a><ul></ul></li>');
+                        for (var i = curItems.length - addCount; i < curItems.length; i++) {
+                            var classActive = '';
+                            if (curItems[i][2]) {
+                                classActive = ' class="active"';
+                            }
+                            curMenu.find('.content-menu-more-link ul').append('<li' + classActive + '><a href="' + curItems[i][1] + '">' + curItems[i][0] + '</a></li>');
+                        }
+                    }
+                } else {
+                    for (var i = 0; i < curItems.length; i++) {
+                        var classActive = '';
+                        if (curItems[i][2]) {
+                            classActive = ' class="active"';
+                        }
+                        curMenu.find('ul').append('<li' + classActive + '><a href="' + curItems[i][1] + '">' + curItems[i][0] + '</a></li>');
+                    }
+                }
+            }
+        });
     } else {
         $('.main-important').each(function() {
             var curList = $(this);
@@ -425,6 +485,34 @@ $(window).on('load resize', function() {
                 });
             });
         }
+
+        $('.content-menu').each(function() {
+            var curMenu = $(this);
+            if (typeof curMenu.data('list') !== 'undefined') {
+                var curItems = JSON.parse(curMenu.data('list'));
+                curMenu.find('ul').html('');
+                curMenu.find('.content-menu-mobile-link').remove();
+                curMenu.find('.content-menu-mobile').remove();
+                for (var i = 0; i < curItems.length; i++) {
+                    var classActive = '';
+                    if (curItems[i][2]) {
+                        classActive = ' class="active"';
+                    }
+                    curMenu.find('ul').append('<li' + classActive + '><a href="' + curItems[i][1] + '">' + curItems[i][0] + '</a></li>');
+                }
+                if (curItems.length > 2 && curMenu.find('ul').width() > curMenu.width()) {
+                    curMenu.prepend('<a href="#" class="content-menu-mobile-link"><svg><use xlink:href="' + pathTemplate + 'images/sprite.svg#content-menu-mobile-link"></use></svg></a>')
+                    curMenu.append('<div class="content-menu-mobile"><ul></ul><a href="#" class="content-menu-mobile-close"><svg><use xlink:href="' + pathTemplate + 'images/sprite.svg#content-menu-mobile-close"></use></svg></a></div>');
+                    for (var i = 0; i < curItems.length; i++) {
+                        var classActive = '';
+                        if (curItems[i][2]) {
+                            classActive = ' class="active"';
+                        }
+                        curMenu.find('.content-menu-mobile ul').append('<li' + classActive + '><a href="' + curItems[i][1] + '">' + curItems[i][0] + '</a></li>');
+                    }
+                }
+            }
+        });
     }
 
     $('.news-tags-list').each(function() {

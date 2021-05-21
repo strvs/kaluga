@@ -163,4 +163,15 @@
         <rect x="18.3633" y="7.05078" width="16" height="2" rx="1" transform="rotate(135 18.3633 7.05078)" />
     </symbol>
 
+    <symbol viewBox="0 0 20 22" id="content-menu-mobile-link">
+        <rect y="4" width="20" height="2" fill="#818184"/>
+        <rect y="10" width="20" height="2" fill="#818184"/>
+        <rect y="16" width="10" height="2" fill="#818184"/>
+    </symbol>
+
+    <symbol viewBox="0 0 20 16" id="content-menu-mobile-close">
+        <rect x="3.63599" y="0.22168" width="20" height="2" transform="rotate(45 3.63599 0.22168)" fill="#818184"/>
+        <rect x="2.22266" y="14.3643" width="20" height="2" transform="rotate(-45 2.22266 14.3643)" fill="#818184"/>
+    </symbol>
+
 </svg>
