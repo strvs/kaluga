@@ -173,5 +173,9 @@
         <rect x="3.63599" y="0.22168" width="20" height="2" transform="rotate(45 3.63599 0.22168)" fill="#818184"/>
         <rect x="2.22266" y="14.3643" width="20" height="2" transform="rotate(-45 2.22266 14.3643)" fill="#818184"/>
     </symbol>
+    
+    <symbol viewBox="0 0 8 14" id="news-other-all">
+        <path d="M6.5 12.5L1 7L6.5 1.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
 
 </svg>
