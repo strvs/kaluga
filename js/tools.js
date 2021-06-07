@@ -84,11 +84,13 @@ $(document).ready(function() {
     });
 
     $('.burger').mCustomScrollbar({
-        axis: 'y'
+        axis: 'y',
+        scrollInertia: 300
     });
 
     $('.sites').mCustomScrollbar({
-        axis: 'y'
+        axis: 'y',
+        scrollInertia: 300
     });
 
     $('.burger li').each(function() {
@@ -114,20 +116,29 @@ $(document).ready(function() {
         prevArrow: '<button type="button" class="slick-prev"><svg><use xlink:href="' + pathTemplate + 'images/sprite.svg#slick-arrow"></use></svg></button>',
         nextArrow: '<button type="button" class="slick-next"><svg><use xlink:href="' + pathTemplate + 'images/sprite.svg#slick-arrow"></use></svg></button>',
         dots: true,
+        fade: true,
+        speed: 0,
         adaptiveHeight: true,
         responsive: [
             {
                 breakpoint: 1088,
                 settings: {
                     arrows: false,
-                    dots: false
+                    dots: false,
+                    fade: false,
+                    speed: 300,
+                    variableWidth: true
                 }
             }
         ]
+    }).on('beforeChange', function(event, slick, currentSlide, nextSlide) {
+        $('.main-slider .slick-slide.prev').removeClass('prev');
+        $('.main-slider .slick-slide').eq(currentSlide).addClass('prev');
     });
 
     $('.main-important-item-links-list').mCustomScrollbar({
-        axis: 'y'
+        axis: 'y',
+        scrollInertia: 300
     });
 
     $('.main-links').slick({
@@ -233,7 +244,8 @@ $(document).ready(function() {
     });
 
     $('.news-filter-select-list').mCustomScrollbar({
-        axis: 'y'
+        axis: 'y',
+        scrollInertia: 300
     });
 
     $('.news-filter-select-item input').change(function() {
@@ -382,6 +394,11 @@ $(document).ready(function() {
 
     $('body').on('click', '.content-menu-mobile-close', function(e) {
         $(this).parents().filter('.content-menu').removeClass('open');
+        e.preventDefault();
+    });
+
+    $('body').on('click', '[data-href]', function(e) {
+        window.location = $(this).attr('data-href');
         e.preventDefault();
     });
 
