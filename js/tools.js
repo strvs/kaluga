@@ -402,6 +402,11 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $('.top-video').each(function() {
+        $('header').append('<div class="header-video visible"><a href="' + $(this).attr('href') + '" class="top-video">' + $(this).html() + '</a></div>');
+        $('.wrapper').addClass('with-header-video');
+    });
+
 });
 
 function initForm(curForm) {
@@ -595,3 +600,28 @@ function windowClose() {
         $(window).scrollTop($('.wrapper').data('curScroll'));
     }
 }
+
+var lastScrollTop = 0;
+var didScroll = false;
+var delta = 5;
+
+$(window).on('scroll', function() {
+    didScroll = true;
+    window.setInterval(function() {
+        if (didScroll) {
+            var st = $(window).scrollTop();
+            if (Math.abs(lastScrollTop - st) <= delta) {
+                return;
+            }
+            if (st > lastScrollTop && st > 0) {
+                $('.header-video').removeClass('visible');
+            } else {
+                if (st + $(window).height() < $(document).height() || st == 0) {
+                    $('.header-video').addClass('visible');
+                }
+            }
+			lastScrollTop = st;
+            didScroll = false;
+        }
+    }, 50);
+});
