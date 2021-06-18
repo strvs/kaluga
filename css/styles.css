@@ -1553,3 +1553,32 @@ footer {margin:40px 0 0 0; background:#004a9b; padding:38px 0 33px 0; color:rgba
     .window-close {top:8px; right:8px; width:16px; height:16px}
     .window-close svg {fill:#333; width:16px; height:16px}
 }
+
+.snippet-list {margin:48px 0; border-top:1px solid #d9d9de}
+.snippet-list-item {border-bottom:1px solid #d9d9de}
+.snippet-list-item-header {display:block; position:relative; padding:21px 48px 21px 0}
+.snippet-list-item-header::after {content:""; display:block; clear:both}
+.snippet-list-item-photo {float:left; width:64px; line-height:0}
+.snippet-list-item-photo img {display:block; width:100%; border-radius:50%}
+.snippet-list-item-photo+.snippet-list-item-content {margin:0 0 0 80px}
+.snippet-list-item-anonce {margin:4px 0 0 0; font-size:14px; line-height:22px; color:#818184}
+.snippet-list-arrow {position:absolute; right:0; top:50%; width:32px; height:32px; margin-top:-16px; border:1px solid #d9d9de; border-radius:50%; transition:transform 0.2s}
+.snippet-list-item.open .snippet-list-arrow {transform:rotate(-180deg)}
+.snippet-list-arrow svg {display:block; width:32px; height:32px; margin:-1px 0 0 -1px; fill:none; stroke:#0061d9}
+.snippet-list-item-detail {display:none; padding:18px 0 64px 0}
+.snippet-list-item-detail *:first-child {margin-top:0}
+.snippet-list-item-detail *:last-child {margin-bottom:0}
+
+.snippet-more {margin:48px 0}
+.snippet-more-container {max-height:168px; position:relative; overflow:hidden}
+.snippet-more.open .snippet-more-container {max-height:none}
+.snippet-more-content *:first-child {margin-top:0}
+.snippet-more-content *:last-child {margin-bottom:0}
+.snippet-more-link {display:none; margin:16px 0 0 0; font-size:14px; line-height:22px}
+.snippet-more.with-more .snippet-more-link {display:block}
+.snippet-more-link a span:nth-child(2) {display:none}
+.snippet-more.open .snippet-more-link a span:nth-child(1) {display:none}
+.snippet-more.open .snippet-more-link a span:nth-child(2) {display:inline}
+.snippet-more-link a svg {display:inline-block; vertical-align:middle; margin:-2px 0 0 10px; width:9px; height:6px; fill:#3368c3; transition:fill 0.2s, transform 0.2s}
+.snippet-more-link a:hover svg {fill:#34548b}
+.snippet-more.open .snippet-more-link a svg {transform:rotate(-180deg)}
