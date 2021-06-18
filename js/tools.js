@@ -186,9 +186,9 @@ $(document).ready(function() {
 		e.preventDefault();
 	});
 
-    $('.page-menu ul li a').click(function(e) {
-        if ($(this).parent().find('ul').length > 0) {
-            $(this).parent().toggleClass('open');
+    $('.page-menu ul li a span').click(function(e) {
+        if ($(this).parent().parent().find('ul').length > 0) {
+            $(this).parent().parent().toggleClass('open');
             e.preventDefault();
         }
     });

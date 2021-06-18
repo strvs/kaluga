@@ -973,6 +973,7 @@ a.main-important-item-inner:hover .main-important-item-icon img {opacity:0.5}
 .page-menu ul li a:hover {color:#3368c3}
 .page-menu ul li.active a {color:#3368c3}
 .page-menu ul li a svg {display:block; width:14px; height:8px; fill:none; stroke:#818184; position:absolute; right:0; bottom:27px}
+.page-menu ul li a span {display:block; position:absolute; right:0; top:0; bottom:0; width:30px}
 .page-menu ul li.open a svg {stroke:#3368c3; transform:rotate(-180deg)}
 .page-menu ul li ul {display:none; font-size:14px; line-height:22px; border-top:1px solid #d9d9de; padding:12px 0 24px 31px}
 .page-menu ul li.open ul {display:block}
@@ -982,6 +983,10 @@ a.main-important-item-inner:hover .main-important-item-icon img {opacity:0.5}
 .page-menu ul li.active ul li.active a,
 .page-menu ul li.active ul li a:hover {color:#3368c3}
 .page-menu ul li ul li a svg {display:inline-block; vertical-align:middle; width:9px; height:6px; position:relative; right:auto; bottom:auto; margin:-2px 0 0 12px}
+.page-menu ul li.open ul li svg {transform:none}
+.page-menu ul li.open ul li.open svg {transform:rotate(-180deg)}
+.page-menu ul li ul li a span {display:inline-block; vertical-align:middle; width:21px; height:12px; position:relative; right:auto; top:auto; bottom:auto; margin:-2px 0 0 0; padding:3px 0 3px 12px}
+.page-menu ul li ul li a span svg {display:block; margin:0}
 .page-menu ul li ul li ul li:first-child a {padding-top:0}
 .page-menu ul li ul li ul li:last-child a {padding-bottom:0}
 .page-menu ul li.open ul li ul {display:none; border-top:none; border-left:1px solid #d9d9de; padding:0 0 0 17px; margin:20px 0 12px 28px}
