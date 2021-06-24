@@ -214,17 +214,17 @@ $(document).ready(function() {
 	$('.docs-filter-dates-from, .docs-filter-dates-to').each(function() {
 		var startDate = new Date();
 		if (typeof ($(this).attr('value')) != 'undefined') {
-			var curValue = $(this).val();
+			var curValue = $(this).attr('value');
 			if (curValue != '') {
 				var startDateArray = curValue.split('.');
 				startDate = new Date(Number(startDateArray[2]), Number(startDateArray[1]) - 1 , Number(startDateArray[0]));
+                $(this).data('datepicker').update('startDate', startDate);
+                $(this).data('datepicker').selectDate(startDate);
+                if ($(this).hasClass('docs-filter-dates-from')) {
+                    $('.docs-filter-dates-to').data('datepicker').update('minDate', startDate);
+                }
 			}
 		}
-		$(this).data('datepicker').update('startDate', startDate);
-        if ($(this).hasClass('docs-filter-dates-from')) {
-            $('.docs-filter-dates-to').data('datepicker').update('minDate', startDate);
-        }
-		$(this).data('datepicker').selectDate(startDate);
 	});
 
     $('.news-filter-select-current').click(function() {
