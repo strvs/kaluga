@@ -363,7 +363,7 @@ header {border-bottom:1px solid #ddd; height:94px; position:relative; z-index:10
 .burger-menu ul li {margin:40px 0 0 0; padding:0}
 .burger-menu ul li::before {display:none}
 .burger-menu ul li a {color:#000; text-decoration:none}
-.burger-menu ul li a svg {display:none}
+.burger-menu ul li a span {display:none}
 .burger-menu ul li a:hover {text-decoration:none; color:#3368c3}
 .burger-menu ul li ul {font-weight:normal; font-size:14px; line-height:22px; margin:16px 0 0 0}
 .burger-menu ul li ul li {margin:8px 0 0 0}
@@ -387,11 +387,13 @@ header {border-bottom:1px solid #ddd; height:94px; position:relative; z-index:10
     .burger-menu ul li ul li {margin:0; border-top:none}
     .burger-menu ul li ul li a {padding:8px 0; color:#818184}
     .burger-menu ul li.with-submenu > a {padding-right:34px; position:relative}
-    .burger-menu ul li.with-submenu > a svg {display:block; position:absolute; right:0; top:20px; width:24px; height:24px; fill:none; stroke:#333}
-    .burger-menu ul li.with-submenu.open > a svg {transform:rotate(-180deg); stroke:#0061d9}
+    .burger-menu ul li.with-submenu > a span {display:block; position:absolute; right:0; top:20px; width:24px; height:24px}
+    .burger-menu ul li.with-submenu.open > a span {transform:rotate(-180deg); stroke:#0061d9}
+    .burger-menu ul li.with-submenu > a span svg {display:block; width:24px; height:24px; fill:none; stroke:#333}
     .burger-menu ul li.with-submenu.open > ul {display:block}
     .burger-menu ul li ul li.with-submenu > a {padding-right:0}
-    .burger-menu ul li ul li.with-submenu > a svg {display:inline-block; position:relative; right:auto; top:auto; width:17px; height:15px; fill:none; stroke:#333; vertical-align:middle; margin:-2px 0 0 6px}
+    .burger-menu ul li ul li.with-submenu > a span {display:inline-block; position:relative; right:auto; top:auto; width:17px; height:15px vertical-align:middle; margin:-2px 0 0 6px}
+    .burger-menu ul li ul li.with-submenu > a span svg {display:block; width:17px; height:15px; fill:none; stroke:#333}
     .burger-menu ul li ul li ul {margin:12px 0 6px 28px; border-left:1px solid #d9d9de; padding:0 0 0 17px}
     .burger-menu ul li ul li ul li {margin:0; padding:0}
     .burger-menu ul li ul li ul li:first-child a {padding-top:0}
@@ -536,16 +538,16 @@ header {border-bottom:1px solid #ddd; height:94px; position:relative; z-index:10
 a.main-important-item-inner:hover .main-important-item-icon img {opacity:0.5}
 .main-important-item-title {position:absolute; left:24px; top:24px; right:24px; color:#fff; font-weight:600; font-size:18px; line-height:24px}
 .main-important-item-link {position:absolute; left:24px; bottom:20px; right:140px; font-weight:600; font-size:14px; line-height:22px}
-.main-important-item-link span {color:#fff; text-decoration:none; display:inline-block}
+.main-important-item-link span {color:#fff; text-decoration:none; display:inline; position:relative}
 .main-important-item-link span:hover {text-decoration:underline}
-.main-important-item-link svg {display:inline-block; vertical-align:middle; width:24px; height:24px; stroke:#fff; margin:-2px 0 0 1px; fill:none; transition:all 0.2s}
+.main-important-item-link svg {display:block; width:24px; height:24px; stroke:#fff; position:absolute; right:-25px; bottom:-5px; fill:none; transition:all 0.2s}
 .main-important-item-link span:hover svg {opacity:0.64; transform:translateX(4px)}
 .main-important-item-links-list {position:absolute; left:0; top:0; right:0; bottom:0; overflow:auto; font-weight:600; font-size:14px; line-height:22px}
-.main-important-item-links-item {padding:8px 24px 0 24px}
+.main-important-item-links-item {padding:8px 48px 0 24px}
 .main-important-item-links-item:first-child {padding-top:26px}
-.main-important-item-links-item a {color:#fff; text-decoration:none; display:inline-block}
+.main-important-item-links-item a {color:#fff; text-decoration:none; display:inline; position:relative}
 .main-important-item-links-item a:hover {text-decoration:underline}
-.main-important-item-links-item svg {display:inline-block; vertical-align:middle; width:24px; height:24px; stroke:#fff; margin:-2px 0 0 1px; fill:none; transition:all 0.2s}
+.main-important-item-links-item svg {display:block; width:24px; height:24px; stroke:#fff; position:absolute; right:-25px; bottom:-5px; fill:none; transition:all 0.2s}
 .main-important-item-links-item a:hover svg {opacity:0.64; transform:translateX(4px)}
 .main-important-item-links-list .mCSB_scrollTools {width:4px; right:12px}
 .main-important-item-links-list .mCSB_scrollTools .mCSB_draggerContainer {background:rgba(255, 255, 255, 0.2); border-radius:2px}
@@ -558,7 +560,7 @@ a.main-important-item-inner:hover .main-important-item-icon img {opacity:0.5}
     .main-important-item {float:none; width:100%; display:inline-block; vertical-align:top; padding:0 16px 0 0; white-space:normal; letter-spacing:0; font-size:}
     .main-important-item-title {left:16px; top:20px; right:16px}
     .main-important-item-link {left:16px; bottom:15px; right:107px}
-    .main-important-item-links-item {padding:8px 16px 0 16px}
+    .main-important-item-links-item {padding:8px 30px 0 16px}
     .main-important-item-links-item:first-child {padding-top:20px}
 }
 

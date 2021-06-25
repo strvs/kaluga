@@ -86,17 +86,13 @@ $(document).ready(function() {
     $('.burger li').each(function() {
         if ($(this).find('ul').length > 0) {
             $(this).addClass('with-submenu');
-            $(this).find('> a').append('<svg><use xlink:href="' + pathTemplate + 'images/sprite.svg#burger-submenu-arrow"></use></svg>');
+            $(this).find('> a').append('<span><svg><use xlink:href="' + pathTemplate + 'images/sprite.svg#burger-submenu-arrow"></use></svg></span>');
         }
     });
 
-    $('.burger-menu ul li a').click(function(e) {
-        if ($(window).width() < 1089) {
-            if ($(this).parent().find('ul').length > 0) {
-                $(this).parent().toggleClass('open');
-                e.preventDefault();
-            }
-        }
+    $('.burger-menu ul li a span').click(function(e) {
+        $(this).parent().parent().toggleClass('open');
+        e.preventDefault();
     });
 
     $('.main-slider').slick({
