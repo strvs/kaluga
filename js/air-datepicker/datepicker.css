@@ -464,9 +464,10 @@ border:1px solid #D9D9DE;    }
 
 .datepicker--nav-title {
   font-size: 22px; line-height: 32px; color: #000;
+  cursor:pointer;
   padding: 0; }
   .datepicker--nav-title:hover {
-      color: #34548b
+      color: #3368c3
   }
   .datepicker--nav-title i {
     font-style: normal;
