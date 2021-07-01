@@ -1068,8 +1068,18 @@ h1+.search {margin-top:-12px}
 .search-form .form-input input {padding-right:50px}
 .search-form .form-submit {position:absolute; left:100%; top:0; margin-left:16px; width:136px}
 .search-form .form-submit .btn {width:100%}
-.search-form-params {margin:20px 0 0 0; font-size:14px; line-height:22px; color:#818184}
-.search-form-params::after {content:""; display:block; clear:both}
+.search-form-ctrl {margin:56px 0 0 0; border-bottom:1px solid #d9d9de}
+.search-form-ctrl::after {content:""; display:block; clear:both}
+.search-form-types {float:left; font-size:16px; line-height:24px}
+.search-form-types ul {margin:0; padding:0; list-style:none}
+.search-form-types ul li {float:left; margin:0 0 0 32px; padding:0}
+.search-form-types ul li:first-child {margin:0}
+.search-form-types ul li::before {display:none}
+.search-form-types ul li a {display:block; padding:0 0 20px 0; color:#818184; text-decoration:none}
+.search-form-types ul li a:hover,
+.search-form-types ul li.active a {color:#000}
+.search-form-types ul li.active a::after {content:""; display:block; position:absolute; left:0; bottom:-1px; right:0; height:2px; background:#3368c3}
+.search-form-params {float:right; margin:3px 0 0 0; font-size:14px; line-height:22px; color:#818184}
 .search-form-params-title {float:left}
 .search-form-params-item {float:left; margin:0 0 0 22px}
 .search-form-params-item .form-radio {margin:0}
@@ -1079,7 +1089,14 @@ h1+.search {margin-top:-12px}
     .search-form .form-input .form-input-clear {display:none}
     .search-form .form-submit {right:0; left:auto; margin:0; width:54px}
     .search-form .form-submit .btn {background:url(../images/search-submit-mobile.svg) no-repeat center; font-size:0; line-height:0; letter-spacing:-1px; padding:0; height:48px}
-    .search-form-params {margin:22px 0 0 -22px}
+    .search-form-ctrl {margin:33px 0 0 0; border-bottom:none}
+    .search-form-types {float:none; font-size:14px; line-height:22px; margin:0 -16px 0 0; border-bottom:1px solid #d9d9de}
+    .search-form-types::after {content:""; display:block; clear:both}
+    .search-form-types ul li {margin:0 0 0 16px}
+    .search-form-types ul li:first-child {margin:0}
+    .search-form-types ul li a {padding:0 0 5px 0}
+    .search-form-params {float:none; margin:24px 0 0 -22px}
+    .search-form-params::after {content:""; display:block; clear:both}
     .search-form-params-title {float:none; margin:0 0 0 22px}
     .search-form-params-item {margin:11px 0 0 22px}
 }
