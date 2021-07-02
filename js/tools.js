@@ -405,6 +405,13 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $('.container table').each(function() {
+        var curTable = $(this);
+        if (!curTable.parent().hasClass('table-scroll')) {
+            curTable.wrap('<div class="table-scroll"></div>');
+        }
+    });
+
 });
 
 function initForm(curForm) {
