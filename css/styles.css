@@ -564,7 +564,7 @@ a.main-important-item-inner:hover .main-important-item-icon img {opacity:0.5}
     .main-important-item-links-item:first-child {padding-top:20px}
 }
 
-.main-gosuslugi {margin:32px 0 0 0; line-height:0}
+.main-gosuslugi {margin:32px 0 0 0}
 .main-gosuslugi img {display:block; width:100%; border-radius:4px}
 
 @media (max-width:1088px) {
@@ -707,7 +707,7 @@ a.main-important-item-inner:hover .main-important-item-icon img {opacity:0.5}
 .news-filter-content > .form-label:first-child {margin-top:0}
 .news-filter-dates {margin:16px 0 0 0}
 .news-filter-dates::after {content:""; display:block; clear:both}
-.news-filter-dates-field {float:left; width:calc(50% - 8px); pointer-events:none}
+.news-filter-dates-field {float:left; width:calc(50% - 8px)}
 .news-filter-dates-field .form-input {margin:0}
 .news-filter-dates-sep {float:left; width:16px}
 .news-filter-dates-sep::before {content:""; display:block; width:8px; height:1px; background:#818184; margin:25px auto 0 auto}
@@ -1606,3 +1606,18 @@ footer {margin:40px 0 0 0; background:#004a9b; padding:38px 0 33px 0; color:rgba
 .snippet-more-link a svg {display:inline-block; vertical-align:middle; margin:-2px 0 0 10px; width:9px; height:6px; fill:#3368c3; transition:fill 0.2s, transform 0.2s}
 .snippet-more-link a:hover svg {fill:#34548b}
 .snippet-more.open .snippet-more-link a svg {transform:rotate(-180deg)}
+
+.site-old {background:#f5f5f7}
+.site-old-link {float:left; font-size:14px; line-height:40px}
+.site-old-link a {display:block; height:40px; padding:0 0 0 35px; position:relative; color:#818184; text-decoration:none}
+.site-old-link a:hover {color:#34548b; text-decoration:none}
+.site-old-link a svg {display:block; width:24px; height:24px; position:absolute; left:0; top:50%; margin-top:-12px; fill:none; stroke:#a7a8ab; transition:fill 0.2s}
+.site-old-link a:hover svg {stroke:#34548b}
+.site-old-close {float:right}
+.site-old-close a {display:block; height:40px; position:relative; width:24px}
+.site-old-close a svg {display:block; width:20px; height:16px; position:absolute; left:2px; top:50%; margin-top:-8px; fill:#818184; opacity:0.67; transition:fill 0.2s, opacity 0.2s}
+.site-old-close a:hover svg {fill:#34548b; opacity:1}
+
+.burger-open .site-old,
+.search-open .site-old,
+.sites-open .site-old {display:none}

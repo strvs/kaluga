@@ -202,4 +202,13 @@
         <path d="M7.81426 0.613769L8.61426 1.40923L4.61426 5.38652L0.614259 1.40923L1.41426 0.613769L4.61426 3.7956L7.81426 0.613769Z" />
     </symbol>
 
+    <symbol viewBox="0 0 24 24" id="site-old-link">
+        <path d="M14.5 17.5L9 12L14.5 6.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+    </symbol>
+
+    <symbol viewBox="0 0 20 16" id="site-old-close">
+        <rect x="3.63605" y="0.221802" width="20" height="2" transform="rotate(45 3.63605 0.221802)" />
+        <rect x="2.22266" y="14.3643" width="20" height="2" transform="rotate(-45 2.22266 14.3643)" />
+    </symbol>
+
 </svg>
