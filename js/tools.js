@@ -164,6 +164,42 @@ $(document).ready(function() {
         }
     })
 
+    $('.news-filter-dates-from').datepicker({
+        prevHtml: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 17.5L9 12L14.5 6.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>',
+        nextHtml: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 17.5L15.5 12L10 6.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>',
+        onSelect: function(fd, d, picker) {
+            $('.news-filter-submit input').prop('disabled', false);
+            $('.news-filter-dates-to').data('datepicker').update('minDate', d);
+            $('.news-filter-calendar-datepicker').data('datepicker').selectDate([d, null]);
+        }
+    });
+
+    $('.news-filter-dates-to').datepicker({
+        prevHtml: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.5 17.5L9 12L14.5 6.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>',
+        nextHtml: '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 17.5L15.5 12L10 6.5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>',
+        position: 'bottom right',
+        onSelect: function(fd, d, picker) {
+            $('.news-filter-submit input').prop('disabled', false);
+            $('.news-filter-calendar-datepicker').data('datepicker').selectDate([null, d]);
+        }
+    });
+
+	$('.news-filter-dates-from, .news-filter-dates-to').each(function() {
+		var startDate = new Date();
+		if (typeof ($(this).attr('value')) != 'undefined') {
+			var curValue = $(this).attr('value');
+			if (curValue != '') {
+				var startDateArray = curValue.split('.');
+				startDate = new Date(Number(startDateArray[2]), Number(startDateArray[1]) - 1 , Number(startDateArray[0]));
+                $(this).data('datepicker').update('startDate', startDate);
+                $(this).data('datepicker').selectDate(startDate);
+                if ($(this).hasClass('docs-filter-dates-from')) {
+                    $('.news-filter-dates-to').data('datepicker').update('minDate', startDate);
+                }
+			}
+		}
+	});
+
 	$('body').on('click', '.media-video-link', function(e) {
         $('.media-video.start').removeClass('start');
 		$('.media-video-player').html('');
@@ -410,6 +446,11 @@ $(document).ready(function() {
         if (!curTable.parent().hasClass('table-scroll')) {
             curTable.wrap('<div class="table-scroll"></div>');
         }
+    });
+
+    $('.site-old-close a').click(function(e) {
+        $('.site-old').remove();
+        e.preventDefault();
     });
 
 });
