@@ -107,7 +107,7 @@ $(document).ready(function() {
         adaptiveHeight: true,
         responsive: [
             {
-                breakpoint: 1088,
+                breakpoint: 1020,
                 settings: {
                     arrows: false,
                     dots: false,
@@ -137,7 +137,7 @@ $(document).ready(function() {
         dots: true,
         responsive: [
             {
-                breakpoint: 1088,
+                breakpoint: 1020,
                 settings: {
                     infinite: false,
                     slidesPerRow: 2,
@@ -467,7 +467,7 @@ function initForm(curForm) {
 
 $(window).on('load resize', function() {
 
-    if ($(window).width() > 1088) {
+    if ($(window).width() > 1020) {
         $('.main-important').each(function() {
             var curList = $(this);
             if (curList.hasClass('slick-slider')) {
@@ -692,4 +692,57 @@ $(window).on('scroll', function() {
             didScroll = false;
         }
     }, 50);
+});
+
+$(document).ready(function() {
+    
+    function popupCenter(url, title) {
+        var dualScreenLeft = window.screenLeft !== undefined ? window.screenLeft : screen.left;
+        var dualScreenTop = window.screenTop !== undefined ? window.screenTop : screen.top;
+        var width = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+        var height = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+        var left = ((width / 2) - (480 / 2)) + dualScreenLeft;
+        var top = ((height / 3) - (360 / 3)) + dualScreenTop;
+        var newWindow = window.open(url, title, 'scrollbars=yes, width=' + 480 + ', height=' + 360 + ', top=' + top + ', left=' + left);
+        if (window.focus) {
+            newWindow.focus();
+        }
+    }
+
+    $('body').on('click', '.media-ctrl-share-item.social-fb', function(e) {
+        var curTitle = encodeURIComponent($('title').html());
+        var curUrl = encodeURIComponent(window.location.href);
+
+        popupCenter('https://www.facebook.com/sharer/sharer.php?u=' + curUrl, curTitle);
+
+        e.preventDefault();
+    });
+
+    $('body').on('click', '.media-ctrl-share-item.social-vk', function(e) {
+        var curTitle = encodeURIComponent($('title').html());
+        var curUrl = encodeURIComponent(window.location.href);
+
+        popupCenter('https://vk.com/share.php?url=' + curUrl + '&description=' + curTitle, curTitle);
+
+        e.preventDefault();
+    });
+
+    $('body').on('click', '.media-ctrl-share-item.social-telegram', function(e) {
+        var curTitle = encodeURIComponent($('title').html());
+        var curUrl = encodeURIComponent(window.location.href);
+
+        popupCenter('https://t.me/share/url?url=' + curUrl + '&text=' + curTitle, curTitle);
+
+        e.preventDefault();
+    });
+
+    $('body').on('click', '.media-ctrl-share-item.social-ok', function(e) {
+        var curTitle = encodeURIComponent($('title').html());
+        var curUrl = encodeURIComponent(window.location.href);
+
+        popupCenter('https://connect.ok.ru/offer?url=' + curUrl + 'title=' + curTitle, curTitle);
+
+        e.preventDefault();
+    });
+
 });
